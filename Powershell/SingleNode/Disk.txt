@@ -1,0 +1,5 @@
+1;AT_SHD_P_01_Rootdisk;D:;SA_AT_SHD_SQL_P@eurad.ad.pwcinternal.com
+2;AT_SHD_P_01_SystemDBs;D:\SystemDBs;SA_AT_SHD_SQL_P@eurad.ad.pwcinternal.com
+3;AT_SHD_P_01_UserDBs;D:\UserDBs;SA_AT_SHD_SQL_P@eurad.ad.pwcinternal.com
+4;AT_SHD_P_01_UserLogs;D:\UserLogs;SA_AT_SHD_SQL_P@eurad.ad.pwcinternal.com
+5;AT_SHD_P_01_Backup;D:\Backup;SA_AT_SHD_SQL_P@eurad.ad.pwcinternal.com

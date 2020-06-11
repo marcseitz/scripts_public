@@ -1,0 +1,34 @@
+das läuft
+
+http://winblog.ch/2012/02/23/automatically-move-clustered-applications-to-their-default-preferred-owner/
+
+
+Import-Module FailoverClusters
+ 
+$clustergroups = Get-ClusterGroup | Where-Object {$_.IsCoreGroup -eq $false}
+foreach ($cg in $clustergroups)
+{
+    $CGName = $cg.Name
+    Write-Host "`nWorking on $CGName"
+    $CurrentOwner = $cg.OwnerNode.Name
+    $POCount = (($cg | Get-ClusterOwnerNode).OwnerNodes).Count
+    if ($POCount -eq 0)
+    {
+        Write-Host "Info: $CGName doesn't have a preferred owner!" -ForegroundColor Magenta
+    }
+    else
+    {
+        $PreferredOwner = ($cg | Get-ClusterOwnerNode).Ownernodes[0].Name
+        if ($CurrentOwner -ne $PreferredOwner)
+        {
+            Write-Host "Moving resource to $PreferredOwner, please wait..."
+            $cg | Move-ClusterGroup -Node $PreferredOwner
+        }
+        else
+        {
+            write-host "Resource is already on preferred owner! ($PreferredOwner)"
+        }
+    }
+}
+Write-Host "`n`nFinished. Current distribution: "
+Get-ClusterGroup | Where-Object {$_.IsCoreGroup -eq $false}

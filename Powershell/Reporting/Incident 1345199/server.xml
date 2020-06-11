@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<All>
+    <Land Land="AnC AT, BE, FI, FR, GR, MA, NL, PT, TR, IHS, TTS">
+	<_Incident>Incident 1345199</_Incident>
+        <_anzahl_instanzen>11</_anzahl_instanzen>
+        <_anzahl_nodes>2</_anzahl_nodes>
+        <_Nodes>emadacmscpwn101;emadacmscpwn102</_Nodes>
+    </Land>
+</All>
+
+
+

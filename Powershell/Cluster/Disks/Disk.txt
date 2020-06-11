@@ -1,0 +1,12 @@
+2;DE_SP15_D_01_Rootdisk;D:;SA_SP15_SQL_D@pwcdedev.ad.internal
+3;DE_SP15_D_01_SystemDBs;D:\SystemDBs;SA_SP15_SQL_D@pwcdedev.ad.internal
+4;DE_SP15_D_01_UserDBs;D:\UserDBs;SA_SP15_SQL_D@pwcdedev.ad.internal
+5;DE_SP15_D_01_UserLogs;D:\UserLogs;SA_SP15_SQL_D@pwcdedev.ad.internal
+6;DE_SP32_D_01_Rootdisk;E:;SA_SP32_SQL_D@pwcdedev.ad.internal
+7;DE_SP32_D_01_SystemDBs;E:\SystemDBs;SA_SP32_SQL_D@pwcdedev.ad.internal
+8;DE_SP32_D_01_UserDBs;E:\UserDBs;SA_SP32_SQL_D@pwcdedev.ad.internal
+9;DE_SP32_D_01_UserLogs;E:\UserLogs;SA_SP32_SQL_D@pwcdedev.ad.internal
+12;DE_SP33_D_01_Rootdisk;F:;SA_SP33_SQL_D@pwcdedev.ad.internal
+13;DE_SP33_D_01_SystemDBs;F:\SystemDBs;SA_SP33_SQL_D@pwcdedev.ad.internal
+14;DE_SP33_D_01_UserDBs;F:\UserDBs;SA_SP33_SQL_D@pwcdedev.ad.internal
+15;DE_SP33_D_01_UserLogs;F:\UserLogs;SA_SP33_SQL_D@pwcdedev.ad.internal

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<All>
+    <Land Land="TST">
+	<_Incident>Incident Testserver</_Incident>
+        <_anzahl_instanzen>1</_anzahl_instanzen>
+        <_anzahl_nodes>2</_anzahl_nodes>
+        <_Nodes>de-dacsqluwv010;de-dacsqluwv011</_Nodes>
+    </Land>
+</All>
+
+
+

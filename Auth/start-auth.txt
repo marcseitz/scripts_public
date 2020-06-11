@@ -1,0 +1,49 @@
+set KerbDebugFlags=0x7ffffff
+set KdcDebugFlags=0xfffff
+set NtlmDebugFlags=0x5ffDf
+set SslDebugFlags=0x4000ffff
+
+mkdir .\logs
+del /f /q .\logs\*.*
+
+logman.exe start kerb -p {6B510852-3583-4e2d-AFFE-A67F9F223438} %KerbDebugFlags% -o .\logs\kerb.etl -ets
+logman.exe start kdc -p {1BBA8B19-7F31-43c0-9643-6E911F79A06B} %KdcDebugFlags% -o .\logs\kdc.etl -ets
+logman.exe start ntlm -p {5BBB6C18-AA45-49b1-A15F-085F7ED0AA90} %NtlmDebugFlags% -o .\logs\ntlm.etl -ets
+logman.exe start ssl -p {37D2C3CD-C5D4-4587-8531-4696C44244C8} %SslDebugFlags% -o .\logs\ssl.etl -ets
+reg add HKLM\SYSTEM\CurrentControlSet\Control\LSA /v SPMInfoLevel /t REG_DWORD /d 0xC03E8F /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\LSA /v LogToFile /t REG_DWORD /d 1 /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\LSA /v NegEventMask /t REG_DWORD /d 0xF /f
+nltest /dbflag:0x26FFFFFF
+
+wevtutil.exe set-log Microsoft-Windows-CAPI2/Operational /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-CAPI2/Operational
+wevtutil.exe set-log Microsoft-Windows-Kerberos/Operational /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-Kerberos/Operational
+REM wevtutil.exe set-log Microsoft-Windows-WebAuth/Operational /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-WebAuth/Operational
+REM wevtutil.exe clear-log Microsoft-Windows-CertPoleEng/Operational
+REM wevtutil.exe set-log Microsoft-Windows-CertPoleEng/Operational /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-IdCtrls/Operational
+REM wevtutil.exe set-log Microsoft-Windows-IdCtrls/Operational /enabled:true
+REM wevtutil.exe clear-log "Microsoft-Windows-User Control Panel"/Operational
+REM wevtutil.exe set-log "Microsoft-Windows-User Control Panel"/Operational /enabled:true
+REM wevtutil.exe set-log Microsoft-Windows-Authentication/AuthenticationPolicyFailures-DomainController /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-Authentication/AuthenticationPolicyFailures-DomainController
+REM wevtutil.exe set-log Microsoft-Windows-Authentication/ProtectedUser-Client /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-Authentication/ProtectedUser-Client
+REM wevtutil.exe set-log Microsoft-Windows-Authentication/ProtectedUserFailures-DomainController /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-Authentication/ProtectedUserFailures-DomainController
+REM wevtutil.exe set-log Microsoft-Windows-Authentication/ProtectedUserSuccesses-DomainController /enabled:true
+REM wevtutil.exe clear-log Microsoft-Windows-Authentication/ProtectedUserSuccesses-DomainController
+
+REM netsh wfp capture start file=.\logs\wfpdiag.cab
+netsh trace start traceFile=.\logs\netmon.etl capture=yes
+
+tasklist /svc > .\logs\start-tasklist.txt
+sc query > .\logs\services-config-at-log-start.txt
+net start > .\logs\services-started-at-log-start.txt
+
+klist > .\logs\tickets-start.txt
+klist -li 0x3e7 > .\logs\ticketscomputer-start.txt
+
+ipconfig /flushdns

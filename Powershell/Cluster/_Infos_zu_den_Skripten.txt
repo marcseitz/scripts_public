@@ -1,0 +1,25 @@
+################################
+#
+# Move_all_to_prefered_owner.ps1
+#
+################################
+
+Verschiebt die Instanzen seriell auf ihre Prefered Owner.
+
+
+################################
+#
+# Show-PreferredOwner.ps1
+#
+################################
+
+Auflistung zu current Owner/prefered owner per Instanz
+
+
+################################
+#
+# uninstall_All_Instanzes.ps1
+#
+################################
+
+Deinstalliert alle SQL Instanzen auf einem Clusternode

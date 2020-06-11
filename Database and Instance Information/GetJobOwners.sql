@@ -1,0 +1,1 @@
+ SELECT name, SUSER_SNAME(owner_sid) from msdb.dbo.sysjobs

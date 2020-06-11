@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<All>
+    <Land Land="IHS">
+	<_Incident>Incident 1357043</_Incident>
+        <_anzahl_instanzen>11</_anzahl_instanzen>
+        <_anzahl_nodes>2</_anzahl_nodes>
+        <_Nodes>emadacmscswn151;emadacmscswn152</_Nodes>
+    </Land>
+</All>

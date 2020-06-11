@@ -1,0 +1,17 @@
+Create a directory on the machine where the tracing is going to run - example c:\ms
+copy start-auth.txt and stop-auth.txt to target and rename with .bat extensions
+From an elevated command prompt (as admin), navigate to the c:\ms directory and run start-auth.bat to start the tracing
+
+Create the issue you are trying to capture.
+
+From an elevated command prompt (as admin), navigate to the c:\ms directory and run stop-auth.bat to stop the tracing.
+The data will be saved to a subdirectory called "logs"
+
+Note:
+This data is most affective when collected from client / server and DC (running scripts on all 3 targets) + network traces
+
+Note:
+The scripts have some lines remarked out that will collect network traces and other event logging - please enable these if you wish to use them.
+
+
+
